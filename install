@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm -rf /opt/mycroft/skills/VoiceControlMycroft.colla
+
+mkdir /opt/mycroft/skills/VoiceControlMycroft.colla
+
+
+cp -r ~/sandbox/VoiceControlMycroft/* /opt/mycroft/skills/VoiceControlMycroft.colla/
