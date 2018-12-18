@@ -54,7 +54,7 @@ def create_skill():
 
 def type( message ):
     print( " start typing " )
-    print( type(message) )
+    print( dir(message) )
     #keyboard.type(message)
 
 def beamer_screen():
