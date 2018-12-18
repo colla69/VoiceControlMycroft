@@ -1,9 +1,12 @@
-import os
 
 from adapt.intent import IntentBuilder
-
 from mycroft.skills.core import MycroftSkill
 from mycroft.util.log import getLogger
+
+
+import os
+import pynput
+keyboard = pynput.keyboard.Controller()
 
 __author__ = 'cola'
 
@@ -15,19 +18,6 @@ class VoiceControlSkill(MycroftSkill):
         super(VoiceControlSkill, self).__init__(name="VoiceControlSkill")
 
     def initialize(self):
-        thank_you_intent = IntentBuilder("ThankYouIntent"). \
-            require("ThankYouKeyword").build()
-        self.register_intent(thank_you_intent, self.handle_thank_you_intent)
-
-        how_are_you_intent = IntentBuilder("HowAreYouIntent"). \
-            require("HowAreYouKeyword").build()
-        self.register_intent(how_are_you_intent,
-                             self.handle_how_are_you_intent)
-
-        hello_world_intent = IntentBuilder("HelloWorldIntent"). \
-            require("HelloWorldKeyword").build()
-        self.register_intent(hello_world_intent,
-                             self.handle_hello_world_intent)
 
         beamer_intent = IntentBuilder("BeamerIntent"). \
             require("BeamerKeyword").build()
@@ -39,14 +29,10 @@ class VoiceControlSkill(MycroftSkill):
         self.register_intent(table_intent,
                              self.handle_table_intent)
 
-    def handle_thank_you_intent(self, message):
-        self.speak_dialog("welcome")
-
-    def handle_how_are_you_intent(self, message):
-        self.speak_dialog("how.are.you")
-
-    def handle_hello_world_intent(self, message):
-        self.speak_dialog("hello.world")
+        typewriter_intent = IntentBuilder("TableIntent"). \
+            require("TableKeyword").build()
+        self.register_intent(typewriter_intent,
+                             self.handle_typewriter_intent)
 
     def handle_beamer_intent(self, message):
         beamer_screen()
@@ -54,6 +40,11 @@ class VoiceControlSkill(MycroftSkill):
 
     def handle_table_intent(self, message):
         table_screen()
+        self.speak_dialog("changes.done")
+
+    def handle_typewriter_intent(self, message):
+        # table_screen()
+        getLogger(message)
         self.speak_dialog("changes.done")
 
     def stop(self):
