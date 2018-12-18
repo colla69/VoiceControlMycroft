@@ -48,14 +48,13 @@ class VoiceControlSkill(MycroftSkill):
     def stop(self):
         pass
 
-
 def create_skill():
     return VoiceControlSkill()
 
 
 def type( message ):
     print( " start typing " )
-    print( message )
+    print( type(message) )
     #keyboard.type(message)
 
 def beamer_screen():
