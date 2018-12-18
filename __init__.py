@@ -44,7 +44,6 @@ class VoiceControlSkill(MycroftSkill):
 
     def handle_typewriter_intent(self, message):
         type(message)
-        getLogger(message)
         self.speak_dialog("changes.done")
 
     def stop(self):
@@ -55,7 +54,8 @@ def create_skill():
     return VoiceControlSkill()
 
 
-def type(message):
+def type( message ):
+    getLogger("blubb")
     print( message )
     #keyboard.type(message)
 
