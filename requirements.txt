@@ -1,2 +1,2 @@
-keyboard
-pynput
+keyboard >= 0.13.2
+pynput >= 1.4
