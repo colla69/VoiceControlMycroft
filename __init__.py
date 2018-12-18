@@ -3,7 +3,6 @@ from adapt.intent import IntentBuilder
 from mycroft.skills.core import MycroftSkill
 from mycroft.util.log import getLogger
 
-
 import os
 import pynput
 keyboard = pynput.keyboard.Controller()
@@ -55,7 +54,7 @@ def create_skill():
 
 
 def type( message ):
-    getLogger("blubb")
+    print( " start typing " )
     print( message )
     #keyboard.type(message)
 
