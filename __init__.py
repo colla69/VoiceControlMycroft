@@ -29,8 +29,8 @@ class VoiceControlSkill(MycroftSkill):
         self.register_intent(table_intent,
                              self.handle_table_intent)
 
-        typewriter_intent = IntentBuilder("TableIntent"). \
-            require("TableKeyword").build()
+        typewriter_intent = IntentBuilder("TypeWriterIntent"). \
+            require("TypeWriterKeyword").build()
         self.register_intent(typewriter_intent,
                              self.handle_typewriter_intent)
 
@@ -56,7 +56,8 @@ def create_skill():
 
 
 def type(message):
-    keyboard.type(message)
+    print( message )
+    #keyboard.type(message)
 
 def beamer_screen():
     os.system("xrandr --output DVI-I-2 --mode 1920x1080 --output  DVI-I-3 --off --output HDMI-0 --mode 1920x1080")
