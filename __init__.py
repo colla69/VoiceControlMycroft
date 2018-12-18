@@ -43,7 +43,7 @@ class VoiceControlSkill(MycroftSkill):
         self.speak_dialog("changes.done")
 
     def handle_typewriter_intent(self, message):
-        # table_screen()
+        type(message)
         getLogger(message)
         self.speak_dialog("changes.done")
 
@@ -54,6 +54,9 @@ class VoiceControlSkill(MycroftSkill):
 def create_skill():
     return VoiceControlSkill()
 
+
+def type(message):
+    keyboard.type(message)
 
 def beamer_screen():
     os.system("xrandr --output DVI-I-2 --mode 1920x1080 --output  DVI-I-3 --off --output HDMI-0 --mode 1920x1080")
